@@ -30,6 +30,14 @@ svg {
   box-shadow: 2px 2px 4px 4px #ddd;
 }
 
+svg[data-dragging="false"] > circle {
+  cursor: grab;
+}
+
+svg[data-dragging="true"] > circle {
+  cursor: grabbing;
+}
+
 footer {
   color: #aaa;
   font-weight: 500;

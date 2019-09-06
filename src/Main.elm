@@ -120,6 +120,8 @@ svgAttributes model =
         attributes =
             [ Svg.Attributes.width <| String.fromInt model.width
             , Svg.Attributes.height <| String.fromInt model.height
+            , Html.Attributes.attribute "data-dragging" 
+                <| if model.cursor == Nothing then "false" else "true"
             ]
     in
     case model.cursor of
