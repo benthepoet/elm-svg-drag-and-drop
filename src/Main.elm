@@ -166,7 +166,9 @@ view model =
             [ Html.Attributes.class "text-center" ]
             [ Html.text "Built by Ben Hanna | "
             , Html.a
-                [ Html.Attributes.href "https://github.com/benthepoet/elm-svg-drag-and-drop" ]
+                [ Html.Attributes.href "https://github.com/benthepoet/elm-svg-drag-and-drop" 
+                , Html.Attributes.target "_blank"
+                ]
                 [ Html.text "View source on GitHub" ]
             ]        
         ]
