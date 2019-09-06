@@ -33,6 +33,7 @@ type alias Model =
 
 type Msg 
     = MouseDown Coordinate
+    | MouseMove Coordinate
     | MouseUp
 
 
@@ -47,6 +48,12 @@ onMouseDown : ( Coordinate -> Msg ) -> Svg.Attribute Msg
 onMouseDown tagger =
     Svg.Events.on "mousedown" 
         <| Json.Decode.map tagger coordinateDecoder  
+
+
+onMouseMove : ( Coordinate -> Msg ) -> Svg.Attribute Msg
+onMouseMove tagger =
+    Svg.Events.on "mousemove"
+        <| Json.Decode.map tagger coordinateDecoder
 
 
 onMouseUp : Msg -> Svg.Attribute Msg 
@@ -75,6 +82,22 @@ update msg model =
             , Cmd.none
             )
 
+        MouseMove coordinate ->
+            case model.cursor of
+                Nothing ->
+                    ( model, Cmd.none )
+
+                Just previous ->
+                    ( { model 
+                        | cursor = Just coordinate
+                        , circle = Circle 
+                            ( model.circle.cx + coordinate.x - previous.x )
+                            ( model.circle.cy + coordinate.y - previous.y )
+                            ( model.circle.r )
+                        }
+                    , Cmd.none
+                    )
+
         MouseUp ->
             ( { model | cursor = Nothing }
             , Cmd.none
@@ -91,12 +114,8 @@ view model =
             [ Svg.svg
                 [ Svg.Attributes.width <| String.fromInt model.width
                 , Svg.Attributes.height <| String.fromInt model.height
-                , case model.cursor of
-                    Nothing ->
-                        Html.Attributes.attribute "data-inactive" "true"
-
-                    Just _ ->
-                        onMouseUp MouseUp
+                , onMouseMove MouseMove
+                , onMouseUp MouseUp
                 ]
                 [ Svg.circle
                     [ Svg.Attributes.fill "yellow"
