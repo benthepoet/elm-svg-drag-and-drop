@@ -1,6 +1,6 @@
 {
-  "short_name": "Elm App",
-  "name": "Create Elm App Sample",
+  "short_name": "Elm SVG Drag and Drop",
+  "name": "Elm SVG Drag and Drop",
   "icons": [
     {
       "src": "favicon.ico",
