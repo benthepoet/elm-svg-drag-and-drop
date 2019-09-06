@@ -1,0 +1,25 @@
+{
+  "name": "elm-svg-drag-and-drop",
+  "version": "1.0.0",
+  "description": "An example of drag and drop with SVG shapes in Elm.",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "elm-app build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benthepoet/elm-svg-drag-and-drop.git"
+  },
+  "author": "Ben Hanna <benpaulhanna@gmail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/benthepoet/elm-svg-drag-and-drop/issues"
+  },
+  "homepage": "https://github.com/benthepoet/elm-svg-drag-and-drop#readme",
+  "dependencies": {
+    "gh-pages": "^2.1.1",
+    "picnic": "^6.5.1"
+  }
+}

@@ -2,34 +2,40 @@ module Main exposing (..)
 
 import Browser
 import Html exposing (Html)
+import Html.Attributes
 import Svg exposing (Svg)
 import Svg.Attributes 
 
 
+type alias Circle =
+    { cx : Int
+    , cy : Int
+    , r : Int
+    }
+
+type alias Flags =
+    { width: Int
+    , height: Int
+    }
+
 type alias Model = 
-    { drag : Maybe ( Int, Int, Int )
-    , circle : ( Int, Int )
-    , size : ( Int, Int )
+    { drag : Maybe ( Int, Int )
+    , circle : Circle
+    , width: Int
+    , height: Int
     }
 
 type Msg = NoOp
 
 
-firstString =
-    Tuple.first >> String.fromInt
-
-
-secondString =
-    Tuple.second >> String.fromInt
-
-
-init : () -> ( Model, Cmd Msg )
-init _ = 
+init : Flags -> ( Model, Cmd Msg )
+init { width, height } = 
     let
         model =
             { drag = Nothing
-            , circle = ( 320, 240 )
-            , size = ( 640, 480 )  
+            , circle = Circle ( width // 2 ) ( height // 2 ) ( width // 10 )
+            , width = width
+            , height = height
             }
     in
     ( model, Cmd.none )
@@ -45,20 +51,25 @@ update msg model =
 view : Model -> Html Msg
 view model =
     Html.div 
-        [] 
-        [ Svg.svg
-            [ Svg.Attributes.width <| String.fromInt <| Tuple.first model.size
-            , Svg.Attributes.height <| String.fromInt <| Tuple.second model.size
+        [ Html.Attributes.class "flex"] 
+        [ Html.div [] []
+        , Html.div 
+            [ Html.Attributes.class "text-center"]
+            [ Svg.svg
+                [ Svg.Attributes.width <| String.fromInt model.width
+                , Svg.Attributes.height <| String.fromInt model.height
+                ]
+                [ Svg.circle
+                    [ Svg.Attributes.fill "yellow"
+                    , Svg.Attributes.stroke "green"
+                    , Svg.Attributes.strokeWidth "4"
+                    , Svg.Attributes.cx <| String.fromInt model.circle.cx
+                    , Svg.Attributes.cy <| String.fromInt model.circle.cy
+                    , Svg.Attributes.r <| String.fromInt model.circle.r ]
+                    []
+                ]
             ]
-            [ Svg.circle
-                [ Svg.Attributes.fill "yellow"
-                , Svg.Attributes.stroke "green"
-                , Svg.Attributes.strokeWidth "4"
-                , Svg.Attributes.cx <| firstString model.circle
-                , Svg.Attributes.cy <| secondString model.circle
-                , Svg.Attributes.r "50" ]
-                []
-            ]
+        , Html.div [] []
         ]
 
 

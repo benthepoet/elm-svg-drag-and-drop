@@ -1,3 +1,5 @@
+@import '../node_modules/picnic/picnic.min.css';
+
 /*
   elm-hot creates an additional div wrapper around the app to make HMR possible.
   This could break styling in development mode if you are using Elm UI.
@@ -15,10 +17,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eee;
+  background-color: #eee !important;
 }
 
 svg {
   background-color: #fff;
   box-shadow: 2px 2px 4px 4px #ddd;
+}
+
+.text-center {
+  text-align: center;
 }
