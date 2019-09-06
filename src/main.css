@@ -20,9 +20,24 @@ body {
   background-color: #eee !important;
 }
 
+nav {
+  background-color: #0074d9;
+  color: #fff;
+}
+
 svg {
   background-color: #fff;
   box-shadow: 2px 2px 4px 4px #ddd;
+}
+
+footer {
+  color: #aaa;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.flex {
+  padding-top: 4em;
 }
 
 .text-center {

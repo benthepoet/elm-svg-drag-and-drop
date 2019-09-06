@@ -104,32 +104,71 @@ update msg model =
             )
 
 
+circleAttributes circle =
+    [ Svg.Attributes.fill "yellow"
+    , Svg.Attributes.stroke "green"
+    , Svg.Attributes.strokeWidth "4"
+    , Svg.Attributes.cx <| String.fromInt circle.cx
+    , Svg.Attributes.cy <| String.fromInt circle.cy
+    , Svg.Attributes.r <| String.fromInt circle.r
+    , onMouseDown MouseDown
+    ]
+
+
+svgAttributes model =
+    let
+        attributes =
+            [ Svg.Attributes.width <| String.fromInt model.width
+            , Svg.Attributes.height <| String.fromInt model.height
+            ]
+    in
+    case model.cursor of
+        Nothing ->
+            attributes
+
+        Just _ ->
+            onMouseMove MouseMove :: onMouseUp MouseUp :: attributes 
+
+
 view : Model -> Html Msg
 view model =
-    Html.div 
-        [ Html.Attributes.class "flex"] 
-        [ Html.div [] []
-        , Html.div 
-            [ Html.Attributes.class "text-center"]
-            [ Svg.svg
-                [ Svg.Attributes.width <| String.fromInt model.width
-                , Svg.Attributes.height <| String.fromInt model.height
-                , onMouseMove MouseMove
-                , onMouseUp MouseUp
-                ]
-                [ Svg.circle
-                    [ Svg.Attributes.fill "yellow"
-                    , Svg.Attributes.stroke "green"
-                    , Svg.Attributes.strokeWidth "4"
-                    , Svg.Attributes.cx <| String.fromInt model.circle.cx
-                    , Svg.Attributes.cy <| String.fromInt model.circle.cy
-                    , Svg.Attributes.r <| String.fromInt model.circle.r
-                    , onMouseDown MouseDown
-                    ]
-                    []
+    Html.div
+        []
+        [ Html.nav 
+            []
+            [ Html.span
+                [ Html.Attributes.class "brand" ]
+                [ Html.text "Elm SVG Drag and Drop" ]
+            , Html.div
+                [ Html.Attributes.class "menu" ]
+                [ Html.text <| 
+                    String.join ", "
+                        [ String.fromInt model.circle.cx 
+                        , String.fromInt model.circle.cy
+                        ]
                 ]
             ]
-        , Html.div [] []
+        , Html.div 
+            [ Html.Attributes.class "flex"] 
+            [ Html.div [] []
+            , Html.div 
+                [ Html.Attributes.class "text-center"]
+                [ Svg.svg
+                    ( svgAttributes model )
+                    [ Svg.circle
+                        ( circleAttributes model.circle )
+                        []
+                    ]
+                ]
+            , Html.div [] []
+            ]
+        , Html.footer
+            [ Html.Attributes.class "text-center" ]
+            [ Html.text "Built by Ben Hanna | "
+            , Html.a
+                [ Html.Attributes.href "https://github.com/benthepoet/elm-svg-drag-and-drop" ]
+                [ Html.text "View source on GitHub" ]
+            ]        
         ]
 
 
