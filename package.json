@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/benthepoet/elm-svg-drag-and-drop/issues"
   },
-  "homepage": "https://github.com/benthepoet/elm-svg-drag-and-drop#readme",
+  "homepage": "https://benthepoet.github.io/elm-svg-drag-and-drop",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "picnic": "^6.5.1"
