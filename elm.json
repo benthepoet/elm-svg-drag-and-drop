@@ -25,6 +25,5 @@
         "indirect": {
             "elm/random": "1.0.0"
         }
-    },
-    "homepage": "https://benthepoet.github.io/elm-svg-drag-and-drop"
+    }
 }
