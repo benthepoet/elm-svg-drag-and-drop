@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.d4ed2e31.chunk.css",
-  "main.js": "/static/js/main.210edf49.chunk.js",
-  "main.css.map": "/static/css/main.d4ed2e31.chunk.css.map",
-  "main.js.map": "/static/js/main.210edf49.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.1b922744.js",
-  "runtime~main.js.map": "/static/js/runtime~main.1b922744.js.map",
-  "vendors~main.css": "/static/css/vendors~main.90020c33.chunk.css",
-  "vendors~main.js": "/static/js/vendors~main.b6242606.chunk.js",
-  "vendors~main.css.map": "/static/css/vendors~main.90020c33.chunk.css.map",
-  "vendors~main.js.map": "/static/js/vendors~main.b6242606.chunk.js.map",
-  "index.html": "/index.html"
+  "main.css": "/elm-svg-drag-and-drop/static/css/main.d4ed2e31.chunk.css",
+  "main.js": "/elm-svg-drag-and-drop/static/js/main.210edf49.chunk.js",
+  "main.css.map": "/elm-svg-drag-and-drop/static/css/main.d4ed2e31.chunk.css.map",
+  "main.js.map": "/elm-svg-drag-and-drop/static/js/main.210edf49.chunk.js.map",
+  "runtime~main.js": "/elm-svg-drag-and-drop/static/js/runtime~main.24d65423.js",
+  "runtime~main.js.map": "/elm-svg-drag-and-drop/static/js/runtime~main.24d65423.js.map",
+  "vendors~main.css": "/elm-svg-drag-and-drop/static/css/vendors~main.90020c33.chunk.css",
+  "vendors~main.js": "/elm-svg-drag-and-drop/static/js/vendors~main.b6242606.chunk.js",
+  "vendors~main.css.map": "/elm-svg-drag-and-drop/static/css/vendors~main.90020c33.chunk.css.map",
+  "vendors~main.js.map": "/elm-svg-drag-and-drop/static/js/vendors~main.b6242606.chunk.js.map",
+  "index.html": "/elm-svg-drag-and-drop/index.html"
 }
